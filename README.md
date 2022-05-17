@@ -1,3 +1,3 @@
-# calculator
+# Calculator
 
-Create a fully functional calculator using JavaScript and styling with CSS.
+Create a fully functional calculator using HTML, CSS, and JavaScript.
