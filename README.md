@@ -1,3 +1,3 @@
 # Calculator
 
-Create a fully functional calculator using HTML, CSS, and JavaScript.
+A fully functional calculator created with HTML, CSS, and JavaScript.
