@@ -60,23 +60,37 @@ class Calculator {
   }
 
   getDisplayNumber(number) {
-    return number
+    const stringNumber = number.toString()
+    const integerDigits = parseFloat(stringNumber.split('.')[0])
+    const decimalDigits = stringNumber.split('.')[1]
+    let integerDisplay
+    if (isNaN(integerDigits)) {
+      integerDisplay = ''
+    } else {
+      integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
+    }
+    if (decimalDigits != null) {
+      return `${integerDisplay}.${decimalDigits}`
+    } else {
+      return integerDisplay
+    }
   }
+
+
   //updates display of calculator
   updateDisplay() {
-    this.currentOperandTextElement.innerText = this.currentOperand
+    this.currentOperandTextElement.innerText =
+      this.getDisplayNumber(this.currentOperand)
     if (this.operation != null) {
-      this.previousOperandTextElement.innerText = 
-      `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
-    }
-    this.previousOperandTextElement.innerText = this.previousOperand
-    } else { 
-    this.previousOperandTextElement.innerText = ''
+      this.previousOperandTextElement.innerText =
+        `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+    } else {
+      this.previousOperandTextElement.innerText = ''
     }
   }
 }
 
-//operator functions
+//operator functions for console
 
 function add(a , b) {
   return a + b;
